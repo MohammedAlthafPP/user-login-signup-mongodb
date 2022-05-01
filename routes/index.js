@@ -77,7 +77,7 @@ router.post('/login',(req,res)=>{
 })
 
 router.get('/logout',(req,res)=>{
-  res.header('Cache-control','no-cache,private, no-store, must-revalidate,max-stale=0,post-check=0,pre-check=0');
+ 
   req.session.destroy()
   res.redirect('/')
 })

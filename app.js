@@ -41,6 +41,13 @@ app.use(session({
   secret:"abcd",
   cookie:{maxAge:600000}
 }))
+
+app.use((req,res,next)=>{
+  res.set('Cache-Control','no-store')
+  next()
+})
+
+
 //connecting DB
 db.connect((err)=>{
 if(err) console.log("Connection Error"+err);

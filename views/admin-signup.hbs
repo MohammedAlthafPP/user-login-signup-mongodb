@@ -3,9 +3,9 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h2 class="text-center text-dark mt-5">Admin SignUp</h2>
-        <div class="text-center mb-5 text-dark">Log into Admin Panel</div>
+      <div class="col-md-6 offset-md-3 ">
+        <h2 class="text-center text-dark mt-5">Add new Admin</h2>
+        <div class="text-center mb-5 text-dark">Only admin can access Admin panel</div>
         <div class="card my-5">
 
           <form class="card-body cardbody-color p-lg-5" action="/abc" method="post" role="form">
@@ -17,12 +17,12 @@
 
             <div class="mb-3">
               <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
-                placeholder="User Name" name="Username">
+                placeholder="Enter New Admin User Name" name="Username" required>
             </div>
             <div class="mb-3">
-              <input type="password" class="form-control" id="password" placeholder="password" name="password" >
+              <input type="password" class="form-control" id="password" placeholder="Enter New Admin password" name="password" required>
             </div>
-            <div class="text-center"><button type="submit" class="btn btn-dark px-5 mb-5 w-100 b">Login</button></div>
+            <div class="text-center"><button type="submit" class="btn btn-dark px-5 mb-5 w-100 b">ADD New Admin</button></div>
             <div id="emailHelp" class="form-text text-center mb-5 text-dark">
             
             </div>

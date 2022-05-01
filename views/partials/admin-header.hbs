@@ -11,10 +11,10 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
+        <a class="navbar-brand" href="#"><img src="/images/ecommerce-logo-adjested.png" alt="Logo unavailable" height="60rem"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -22,15 +22,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/admin">All users</a>
+              <a class="nav-link active" aria-current="page" href="/admin"><img src="/images/user.png" alt="" style="height: 2rem;"></a>
             </li>
             {{!-- <li class="nav-item">
               <a class="nav-link" href="/user-Details">All users</a>
             </li> --}}
             
           </ul>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          <div class="dropdown ">
+            <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1"
               data-bs-toggle="dropdown" aria-expanded="false">
               
               {{admin.Username}}

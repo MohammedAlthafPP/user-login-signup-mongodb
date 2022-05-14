@@ -85,7 +85,7 @@ console.log(user);
       },
   ];
 
- //res.render('homepage',{products_hm});
+
 
 //user page data showing as list -data tacking from database
 

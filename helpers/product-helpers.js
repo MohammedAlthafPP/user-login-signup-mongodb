@@ -24,14 +24,7 @@ getAllProducts:()=>{
     })
 },
 
-// deleteProducts:(productId)=>{
-// return new Promise((resolve,reject)=>{
-//     db.get().collection(collection.PRODUCT_COLLECTION).removeOne({_id:objectId(productId)}).then((response)=>{
-//         console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"+response);
-//         resolve(response)
-//     })
-// })
-// }
+
 
 deleteProducts:(productId)=>{
     return new Promise((resolve,reject)=>{

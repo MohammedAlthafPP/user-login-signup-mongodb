@@ -23,31 +23,35 @@ const verifyAdmin=(req,res,next)=>{
   }
 }
 
+
+
+
+
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.header('Cache-control','no-cache,private, no-store, must-revalidate,max-stale=0,post-check=0,pre-check=0');
   if(req.session.loggedIn){
     res.redirect('/homepage')
   } else{
     res.render('index',{LoginErr:req.session.LoginErr,layout:false})
     req.session.LoginErr=false
   }
+
   
 });
 
 router.get('/signup',(req,res)=>{
-  
-  res.render('signup',{layout:false})
+  if(req.session.user){
+    res.redirect('/homepage')
+  }else{
+    res.render('signup',{layout:false})
+  }
+ 
 })
 
 //signup page data inserting to database
 router.post('/registration',(req,res)=>{
- 
-// userHelper.doSignup(req.body).then((response)=>{
-//   //console.log(req.body);
-//   //console.log("###########"+response);
-//   res.redirect('/homepage')
-// })
 
  userHelper.doSignup(req.body).then((response)=>{
      // console.log("dosingup========="+userData);
@@ -55,7 +59,7 @@ router.post('/registration',(req,res)=>{
       req.session.user=req.body
      res.redirect('/homepage')
      
-     console.log(req.body);
+  
       
     }) 
 });
@@ -90,9 +94,16 @@ router.get('/cart',verifyLogin,(req,res)=>{
 
 
 router.get('/admin-login',(req,res)=>{
-  res.render('admin-login',{layout:null,adminLogErr:req.session.adminLoginErr})
+  if( req.session.admin){
+    res.redirect("/admin")
+  }else{
+    res.render('admin-login',{layout:null,adminLogErr:req.session.adminLoginErr})
   req.session.adminLoginErr=false
+  }
+  
 })
+
+
 
 router.post('/admin-panel',(req,res)=>{
  // console.log(req.body);
@@ -100,7 +111,7 @@ router.post('/admin-panel',(req,res)=>{
     if(response.status){
       req.session.adminloggedIn=true
       req.session.admin=response.admin
-     console.log(req.session.admin);
+     
       res.redirect("/admin")
     } else{
       req.session.adminLoginErr="Invalid Username or Password"  //passing error to intex.hbs
@@ -111,8 +122,7 @@ router.post('/admin-panel',(req,res)=>{
 
 //admin signup
 router.get('/admin-signup',verifyAdmin,(req,res)=>{
-
- 
+  
   res.render('admin-signup',{layout:null})
   
   

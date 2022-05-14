@@ -13,10 +13,10 @@ if( req.session.adminloggedIn){
 
 var admin= req.session.admin
 
-  //tacking product from database and displaying as table,passing databse to admin page
+  //taking product from database and displaying as table,passing database to admin page
     productHelper.getAllProducts().then((products)=>{
       console.log(products);
-      res.header('Cache-control','no-cache,private, no-store, must-revalidate,max-stale=0,post-check=0,pre-check=0');
+      
       res.render('admin/view-products',{admin,products})
     
     }) 
@@ -45,6 +45,7 @@ router.get('/delete-product/:id',(req,res)=>{
   let proId=req.params.id
   console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIDDDDDDDDDDDDDDDDDDDD"+proId);
 productHelper.deleteProducts(proId).then((response)=>{
+
   res.redirect('/admin')
 })
 })
@@ -57,8 +58,7 @@ router.get('/edit-product/:id',async(req,res)=>{
 })
 
 router.post('/edit-product/:id',(req,res)=>{
-  console.log(req.params.id);
-
+ 
   productHelper.updateproduct(req.params.id,req.body).then(()=>{
 
     res.redirect('/admin')
